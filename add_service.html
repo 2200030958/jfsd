@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Service</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+    </style>
+</head>
+<body>
+    <h2>Add Service</h2>
+    <form action="/admin/add_service" method="post">
+        <input type="text" name="serviceName" placeholder="Service Name" required>
+        <button type="submit">Add Service</button>
+    </form>
+</body>
+</html>

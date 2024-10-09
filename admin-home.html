@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .nav { margin: 20px; }
+        .nav a { margin-right: 15px; }
+    </style>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <div class="nav">
+        <a href="/admin/add_course">Add Course</a>
+        <a href="/admin/add_instructor">Add Instructor</a>
+        <a href="/admin/view_feedback">View Feedback</a>
+        <a href="/admin/add_service">Add Service</a>
+    </div>
+    
+    <div>
+        <h2>Welcome, <span th:text="${user.name}"></span></h2>
+        <p>Admin ID: <span th:text="${user.username}"></span></p>
+        <p>Experience: <span th:text="${user.experience}"></span> years</p>
+    </div>
+</body>
+</html>

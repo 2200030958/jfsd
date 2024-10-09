@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Instructor</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+    </style>
+</head>
+<body>
+    <h2>Add Instructor</h2>
+    <form action="/admin/add_instructor" method="post">
+        <input type="text" name="instructorName" placeholder="Instructor Name" required>
+        <button type="submit">Add Instructor</button>
+    </form>
+</body>
+</html>

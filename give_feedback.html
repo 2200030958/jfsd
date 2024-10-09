@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Give Feedback</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+    </style>
+    <script>
+        function toggleFields() {
+            const type = document.querySelector('[name="type"]').value;
+            document.getElementById('courseFields').style.display = type === 'course' ? 'block' : 'none';
+            document.getElementById('instructorFields').style.display = type === 'instructor' ? 'block' : 'none';
+            document.getElementById('serviceFields').style.display = type === 'service' ? 'block' : 'none';
+        }
+    </script>
+</head>
+<body>
+    <h2>Give Feedback</h2>
+    <form action="/student/give_feedback" method="post">
+        <select name="type" onchange="toggleFields()" required>
+            <option value="course">Course</option>
+            <option value="instructor">Instructor</option>
+            <option value="service">Service</option>
+        </select><br>
+
+        <div id="courseFields">
+            <select name="courseName" required>
+                <option th:each="course : ${courses}" th:value="${course.name}" th:text="${course.name}"></option>
+            </select>
+        </div>
+
+        <div id="instructorFields" style="display:none;">
+            <select name="instructorName" required>
+                <option th:each="instructor : ${instructors}" th:value="${instructor.name}" th:text="${instructor.name}"></option>
+            </select>
+        </div>
+
+        <div id="serviceFields" style="display:none;">
+            <select name="serviceName" required>
+                <option th:each="service : ${services}" th:value="${service.name}" th:text="${service.name}"></option>
+            </select>
+        </div>
+
+        <textarea name="feedbackContent" placeholder="Your Feedback" required></textarea><br>
+        <button type="submit">Submit Feedback</button>
+    </form>
+</body>
+</html>

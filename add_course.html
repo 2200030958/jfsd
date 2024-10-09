@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Course</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+    </style>
+</head>
+<body>
+    <h2>Add Course</h2>
+    <form action="/admin/add_course" method="post">
+        <input type="text" name="courseName" placeholder="Course Name" required>
+        <button type="submit">Add Course</button>
+    </form>
+</body>
+</html>

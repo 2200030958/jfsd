@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Profile</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+    </style>
+</head>
+<body>
+    <h2>Profile</h2>
+    <div>
+        <h3 th:text="${role} + ' Profile'"></h3>
+        <p th:text="'Username: ' + ${user.username}"></p>
+        <p th:text="'Name: ' + ${user.name}"></p>
+        <p th:text="'Email: ' + ${user.email}"></p>
+        <p th:text="'Phone: ' + ${user.phone}"></p>
+        <p th:text="'Pass Out Year: ' + ${user.passOutYear}"></p>
+        <p th:text="'Experience: ' + ${user.experience}"></p>
+    </div>
+</body>
+</html>

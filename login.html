@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #1e3c72, #2a69ac); /* Gradient background */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        form {
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for the form */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        button {
+            background-color: #f39c12; /* Button color */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #e67e22; /* Darker button color on hover */
+        }
+        p {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Login</h2>
+    <form action="/login" method="post">
+        <input type="text" name="username" placeholder="Username" required><br>
+        <input type="password" name="password" placeholder="Password" required><br>
+        <select name="role" required>
+            <option value="student">Student</option>
+            <option value="admin">Admin</option>
+        </select><br>
+        <button type="submit">Login</button>
+    </form>
+    <p><a href="/signup" style="color: #f39c12;">Sign Up</a></p>
+    <p th:text="${error}"></p>
+</body>
+</html>

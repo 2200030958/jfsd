@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sign Up</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc); /* Gradient background */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        form {
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for the form */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            width: 300px; /* Fixed width for the form */
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        button {
+            background-color: #f39c12; /* Button color */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #e67e22; /* Darker button color on hover */
+        }
+        p {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Sign Up</h2>
+    <form action="/signup" method="post">
+        <input type="text" name="username" placeholder="Username" required><br>
+        <input type="text" name="name" placeholder="Name" required><br>
+        <input type="email" name="email" placeholder="Email" required><br>
+        <input type="text" name="phone" placeholder="Phone" required><br>
+        <input type="password" name="password" placeholder="Password" required><br>
+        
+        <select name="role" onchange="toggleFields()" required>
+            <option value="student">Student</option>
+            <option value="admin">Admin</option>
+        </select><br>
+
+        <div id="studentFields">
+            <input type="number" name="passOutYear" placeholder="Pass Out Year" required><br>
+        </div>
+
+        <div id="adminFields" style="display:none;">
+            <input type="number" name="experience" placeholder="Years of experience" required><br>
+        </div>
+
+        <button type="submit">Sign Up</button>
+    </form>
+
+    <script>
+        function toggleFields() {
+            var role = document.querySelector('[name="role"]').value;
+            document.getElementById('studentFields').style.display = role === 'student' ? 'block' : 'none';
+            document.getElementById('adminFields').style.display = role === 'admin' ? 'block' : 'none';
+        }
+        // Call toggleFields() to set the initial state correctly
+        window.onload = toggleFields;
+    </script>
+</body>
+</html>

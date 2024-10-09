@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Feedback</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+    </style>
+</head>
+<body>
+    <h2>View Feedback</h2>
+    <div>
+        <h3>Feedbacks Submitted by Students:</h3>
+        <ul>
+            <li th:each="feedback : ${feedbackList}">
+                <p th:text="'From: ' + ${feedback.studentName}"></p>
+                <p th:text="'Feedback: ' + ${feedback.content}"></p>
+                <hr>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .nav { margin: 20px; }
+        .nav a { margin-right: 15px; }
+    </style>
+</head>
+<body>
+    <h1>Student Dashboard</h1>
+    <div class="nav">
+        <a href="/student/give_feedback">Give Feedback</a>
+        <a href="/student/view_feedback">View Feedback</a>
+    </div>
+    
+    <div>
+        <h2>Welcome, <span th:text="${user.name}"></span></h2>
+        <p>Student ID: <span th:text="${user.username}"></span></p>
+        <p>Pass Out Year: <span th:text="${user.passOutYear}"></span></p>
+    </div>
+</body>
+</html>
